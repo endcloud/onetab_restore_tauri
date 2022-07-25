@@ -1,0 +1,44 @@
+@import '@elastic/eui/src/themes/amsterdam/colors_dark';
+@import '@elastic/eui/src/themes/amsterdam/globals';
+
+.App {
+  /*text-align: center;*/
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.AppLink {
+  color: #61dafb;
+}
+
+.pageContent {
+  width: 80%;
+  margin: 0 auto 0 auto;
+  min-height: 75vh;
+}
+
+.main_content{
+  margin-top: 10vh;
+}
+
+@include euiBreakpoint('xs','s') {
+  #mainContent{
+    margin-top: 48px;
+  }
+}
+
+@include euiBreakpoint('m', 'l','xl') {
+  #mainContent{
+    margin-top: 48px;
+  }
+}

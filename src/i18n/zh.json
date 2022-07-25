@@ -1,0 +1,35 @@
+{
+    "header": {
+        "slogan": "让旅行更幸福",
+        "add_new_language": "添加新语言",
+        "title": "React 旅游网",
+        "register":"注册",
+        "signin":"登陆",
+        "home_page": "旅游首页",
+        "weekend": "周末游",
+        "group": "跟团游",
+        "backpack": "自由行",
+        "private": "私家团",
+        "cruise": "邮轮",
+        "hotel": "酒店+景点",
+        "local": "当地玩乐",
+        "theme": "主题游",
+        "custom": "定制游",
+        "study": "游学",
+        "visa":"签证",
+        "enterprise":"企业游",
+        "high_end":"高端游",
+        "outdoor":"爱玩户外",
+        "insurance":"保险"
+    },
+    "footer": {
+        "detail" : "版权所有 @ React 旅游网"
+    },
+    "home_page": {
+        "hot_recommended": "爆款推荐",
+        "new_arrival": "新品上市",
+        "domestic_travel": "国内游推荐",
+        "joint_venture": "合作企业",
+        "start_from": "(起)"
+    }
+}
