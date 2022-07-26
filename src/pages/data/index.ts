@@ -1,3 +1,6 @@
 export * from "./DataPage"
 export * from "./test"
-export * from "./test2"
+export * from "./components/FullSearch"
+export * from "./components/TabGroup"
+export * from "./components/DatePicker"
+export * from "./components/BasicTable"

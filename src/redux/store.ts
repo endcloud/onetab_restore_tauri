@@ -7,7 +7,7 @@ export const store = configureStore({
         home: HomeSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => [...getDefaultMiddleware()] as const,
-    devTools:true
+    devTools: false
 })
 
 export type StoreType = ReturnType<typeof store.getState>

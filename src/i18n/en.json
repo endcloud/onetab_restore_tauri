@@ -1,35 +1,15 @@
 {
     "header": {
-        "slogan": "Make travel happier",
-        "add_new_language": "add new language",
-        "title": "React Travel",
-        "register":"Register",
-        "signin":"Sign In",
-        "home_page": "Home",
-        "weekend": "Weekend",
-        "group": "Group",
-        "backpack": "Backpack",
-        "private": "Private",
-        "cruise": "Cruise",
-        "hotel": "Hotel & Attractions",
-        "local": "Local",
-        "theme": "Theme",
-        "custom": "Custom",
-        "study": "Study",
-        "visa":"Visa",
-        "enterprise":"Enterprise",
-        "high_end":"High-end",
-        "outdoor":"Outdoor",
-        "insurance":"Insurance"
+        "slogan": "Make travel happier"
     },
     "footer": {
-        "detail" : "All rights reserved @ ReactTravel.com"
+        "detail" : "All rights reserved @ 2233.re"
     },
     "home_page": {
-        "hot_recommended": "Hot Recommended",
-        "new_arrival": "New arrival",
-        "domestic_travel": "Domestic travel",
-        "joint_venture": "Joint Venture",
-        "start_from": "(start from)"
+        "per_page_tab_group_num": "TabGroups per page",
+        "filter": "Filter",
+        "emptySearch": "Title Keywords",
+        "start_tip": "正在加载 oneTab.json, 若数据较多请耐心等待! ",
+        "error_tip": "加载 onetab.json 文件失败, 请检查文件是否存在于本App的目录下!"
     }
 }

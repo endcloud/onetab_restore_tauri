@@ -1,8 +1,9 @@
 import React from 'react'
-import {formatDate, EuiBasicTable, EuiLink, EuiHealth} from '@elastic/eui'
-import {OnetabItemType,} from "../../redux/home/slice"
+import {EuiBasicTable, EuiLink} from '@elastic/eui'
+import {OnetabItemType,} from "../../../redux/home/slice"
 
 interface Props {
+    id: string,
     onetabItems: OnetabItemType[]
 }
 
@@ -38,6 +39,7 @@ export const Table: React.FC<Props> = (props: Props) => {
     const getRowProps = (item: OnetabItemType) => {
         const {id} = item
         return {
+            id: `$tr-${id}`,
             'data-test-subj': `row-${id}`,
             className: 'customRowClass',
             onClick: () => {
@@ -50,6 +52,7 @@ export const Table: React.FC<Props> = (props: Props) => {
         const {id} = item
         const {field} = column
         return {
+            id: `cell-${id}`,
             className: 'customCellClass',
             'data-test-subj': `cell-${id}-${field}`,
             textOnly: true,
@@ -57,10 +60,11 @@ export const Table: React.FC<Props> = (props: Props) => {
     }
 
     return (
-        <div>
+        <div id={"div-"+props.id}>
             {
                 <EuiBasicTable
-                    tableCaption="Demo of EuiBasicTable"
+                    id={props.id}
+                    tableCaption="EuiBasicTable"
                     items={props.onetabItems}
                     rowHeader="title"
                     columns={columns}
@@ -71,3 +75,6 @@ export const Table: React.FC<Props> = (props: Props) => {
 
     )
 }
+
+
+

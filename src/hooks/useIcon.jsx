@@ -34,6 +34,10 @@ import { icon as EuiIconDiscoverApp } from '@elastic/eui/es/components/icon/asse
 import { icon as EuiIconPlay } from '@elastic/eui/es/components/icon/assets/play';
 import { icon as EuiIconPlayFilled } from '@elastic/eui/es/components/icon/assets/playFilled';
 import { icon as EuiIconVideoPlayer } from '@elastic/eui/es/components/icon/assets/videoPlayer';
+import { icon as EuiIconSearch } from '@elastic/eui/es/components/icon/assets/search';
+import { icon as EuiIconCross } from '@elastic/eui/es/components/icon/assets/cross';
+import { icon as EuiIconCrossInACircleFilled } from '@elastic/eui/es/components/icon/assets/crossInACircleFilled';
+import { icon as EuiIconCalendar } from '@elastic/eui/es/components/icon/assets/calendar';
 
 
 // One or more icons are passed in as an object of iconKey (string): IconComponent
@@ -74,5 +78,9 @@ export const useIcon = () => {
         playFilled: EuiIconPlayFilled,
         discoverApp: EuiIconDiscoverApp,
         videoPlayer: EuiIconVideoPlayer,
+        search: EuiIconSearch,
+        cross: EuiIconCross,
+        crossInACircleFilled: EuiIconCrossInACircleFilled,
+        calendar: EuiIconCalendar
     });
 }

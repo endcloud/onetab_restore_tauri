@@ -33,12 +33,12 @@
 
 @include euiBreakpoint('xs','s') {
   #mainContent{
-    margin-top: 48px;
+    //margin-top: 48px;
   }
 }
 
 @include euiBreakpoint('m', 'l','xl') {
   #mainContent{
-    margin-top: 48px;
+    //margin-top: 48px;
   }
 }

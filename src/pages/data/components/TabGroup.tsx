@@ -1,9 +1,10 @@
 import React from "react"
 import {OnetabItemType} from "../../../redux/home/slice"
 import {EuiSpacer, EuiText, EuiTitle, EuiTextColor} from "@elastic/eui"
-import {Table} from "../test2"
+import {Table} from "./BasicTable"
 
 interface Props {
+    id: string,
     time: number,
     items: OnetabItemType[]
 }
@@ -13,10 +14,10 @@ const ts2time = (time = +new Date()): string => {
     return date.toJSON().slice(0, 19).replace('T', ' ').replace(/-/g, '.')
 }
 
-export const TabGroup = (props: Props) => {
+export const TabGroup: React.FC<Props> = (props: Props) => {
     return (
-        <div>
-            <EuiTitle size="m">
+        <div id={props.id}>
+            <EuiTitle id={"tg-"+props.id} size="m">
                 <EuiText>
                     {ts2time(props.time)}
                     <EuiTextColor color={"success"} style={{fontSize: "18px"}}>
@@ -25,9 +26,8 @@ export const TabGroup = (props: Props) => {
                 </EuiText>
             </EuiTitle>
 
-
-            <Table onetabItems={props.items}/>
-            <EuiSpacer size="xl"/>
+            <Table id={"table-"+props.id} onetabItems={props.items}/>
+            <EuiSpacer id={"space-"+props.id} size="xl"/>
         </div>
     )
 }
