@@ -18,6 +18,7 @@ export const Table: React.FC<Props> = (props: Props) => {
             'data-test-subj': 'titleCell',
             render: (name: string, item: OnetabItemType) => (
                 <EuiLink href={item.url} target="_blank">
+                    {/*<EuiImage src={"edge://favicon/size/16@2x/http://"+item.url.split("/")[2]}  alt={"ico"}/>*/}
                     {name}
                 </EuiLink>
             ),
@@ -60,7 +61,7 @@ export const Table: React.FC<Props> = (props: Props) => {
     }
 
     return (
-        <div id={"div-"+props.id}>
+        <div id={"div-" + props.id}>
             {
                 <EuiBasicTable
                     id={props.id}

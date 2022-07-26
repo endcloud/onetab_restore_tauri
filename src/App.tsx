@@ -8,9 +8,11 @@ import "./App.scss"
 import createCache from "@emotion/cache"
 import {appWindow} from "@tauri-apps/api/window"
 import {useSelector} from "./redux/hooks"
+import {useDisable} from "./hooks/useDisable"
 
 function App() {
     useIcon()
+    useDisable()
 
     const state = useSelector((state) => state.home)
     const [dark, setDark] = useState(false)
@@ -39,7 +41,7 @@ function App() {
                     id={"mainContent"}
                     restrictWidth="75%"
                     pageHeader={{
-                        rightSideItems: (typeof state.errMessage) === "undefined" ? [<DatePicker/>, <FulSearch/>] : [],
+                        rightSideItems: state.onetabGroups.length > 0 ? [<DatePicker/>, <FulSearch/>] : [],
                         description: '',
                     }}
                 >

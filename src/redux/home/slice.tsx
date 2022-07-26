@@ -59,6 +59,18 @@ export const readJson = createAsyncThunk(
 
 export type thunkType = typeof readJson
 
+const dataVerify = (state: HomeStateType) => {
+    if (state.showGroups.length === 0) {
+        state.errMessage = "No result found"
+    }else{
+        state.errMessage = undefined
+    }
+
+    state.pagination!.count = state.showGroups.length
+    state.pagination!.page = Math.ceil(state.pagination!.count/state.pagination!.per_page)
+    state.pagination!.current_page = 0
+}
+
 
 export const HomeSlice = createSlice({
     name: "home",
@@ -90,9 +102,8 @@ export const HomeSlice = createSlice({
             state.showGroups = state.onetabGroups.filter(group => {
                 return JSON.stringify(group.tabsMeta).toLowerCase().indexOf(action.payload.toLowerCase()) !== -1
             })
-            state.pagination!.count = state.showGroups.length
-            state.pagination!.page = Math.ceil(state.pagination!.count/state.pagination!.per_page)
-            state.pagination!.current_page = 0
+
+            dataVerify(state)
         },
         filterDate: (state: HomeStateType, action) => {
             if (action.payload === state.filter.date) return
@@ -100,9 +111,8 @@ export const HomeSlice = createSlice({
             state.filter.date = action.payload
 
             state.showGroups = state.onetabGroups.filter(group => new Date(group.createDate).toLocaleDateString() === action.payload)
-            state.pagination!.count = state.showGroups.length
-            state.pagination!.page = Math.ceil(state.pagination!.count/state.pagination!.per_page)
-            state.pagination!.current_page = 0
+
+            dataVerify(state)
         },
     },
     extraReducers: {
