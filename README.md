@@ -42,7 +42,7 @@
 - Tauri 构建完整二进制文件
 
 ## 运行截图:
-![1661019333png](https://cos.endcloud.cn/blog/cache_pic/1661019332.png)
+![1661033992png](https://cos.endcloud.cn/blog/cache_pic/E8E5402ADAFC08846B3F1612925C0D44.png)
 
 
 ## 致谢
