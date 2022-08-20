@@ -1,0 +1,98 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeBuildCommand": "yarn build",
+    "beforeDevCommand": "yarn start",
+    "devPath": "http://127.0.0.1:3000",
+    "distDir": "../build",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Onetab Re",
+    "version": "1.0.7"
+  },
+  "tauri": {
+    "allowlist": {
+      "dialog": {
+        "all": true
+      },
+      "fs": {
+        "all": true,
+        "scope": [
+          "$DESKTOP/*",
+          "$HOME/*",
+          "$LOCALDATA/*",
+          "$RESOURCE/*"
+        ]
+      },
+      "window": {
+        "all": true
+      },
+      "http": {
+        "all": true,
+        "scope": [
+          "https://*.endcloud.cn/*"
+        ]
+      },
+      "path": {
+        "all": true
+      },
+      "os": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
+      "icon": [
+        "icons/onetabRes@32.png",
+        "icons/onetabRes@1x.png",
+        "icons/onetabRes@2x.png",
+        "icons/onetabRes.icns",
+        "icons/onetabRes.ico"
+      ],
+      "identifier": "com.shizi.onetabRes",
+      "longDescription": "",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "resources": ["scripts/handle_onetab.js"],
+      "shortDescription": "",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": "",
+        "webviewInstallMode": {
+          "type": "embedBootstrapper"
+        }
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "Onetab Re",
+        "width": 1024,
+        "minHeight": 600,
+        "minWidth": 1024
+      }
+    ]
+  }
+}

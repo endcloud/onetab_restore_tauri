@@ -1,7 +1,9 @@
 {
   "name": "restore_onetab",
-  "version": "0.1.0",
+  "version": "1.0.7",
   "private": true,
+  "code": "#22.107.01",
+  "time": 1661016369,
   "dependencies": {
     "@elastic/datemath": "^5.0.3",
     "@elastic/eui": "^61.0.0",

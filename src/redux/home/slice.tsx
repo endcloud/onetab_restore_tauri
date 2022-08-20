@@ -1,6 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {desktopDir, localDataDir, appDir, homeDir, resourceDir} from "@tauri-apps/api/path"
 import {readTextFile} from "@tauri-apps/api/fs"
+import {fetch} from "@tauri-apps/api/http"
+import {confirm} from "@tauri-apps/api/dialog"
+import config from '../../../package.json'
 
 
 export interface OnetabItemType {
@@ -54,6 +57,27 @@ export const readJson = createAsyncThunk(
         console.log(await resourceDir())
         const str = await readTextFile(`${await resourceDir()}\\tab_ori.json`.replaceAll("\\", "/"))
         return JSON.parse(str).tabGroups
+    }
+)
+
+export const checkUpdate = createAsyncThunk(
+    "home/check_update",
+    async () => {
+        const res: any = await fetch("https://cos.endcloud.cn/onetabre", {
+            method: 'GET',
+            timeout: 10
+        })
+        if (!res || res.data.status !== 0) return
+
+        console.log(res.data)
+
+        const {time} = res.data
+        const bundleTime = config.time
+        if (time > bundleTime) {
+            const isConfirm = await confirm("检测到新版本，是否前往发布地址？", {title: "更新提示", type: "info"})
+            if (!isConfirm) return
+            window.open(`https://github.com/endcloud/onetab_restore_tauri/releases`, "_blank")
+        }
     }
 )
 

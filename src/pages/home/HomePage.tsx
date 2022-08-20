@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import {useSelector} from "../../redux/hooks"
 import {useDispatch} from "react-redux"
-import {HomeSlice, readJson} from "../../redux/home/slice"
+import {checkUpdate, HomeSlice, readJson} from "../../redux/home/slice"
 import {
     EuiFlexGroup,
     EuiFlexItem,
@@ -27,6 +27,8 @@ export const HomePage: React.FC = () => {
     }
 
     useEffect(() => {
+        // @ts-ignore
+        dispatch(checkUpdate())
         try{
             // @ts-ignore
             dispatch(readJson())
