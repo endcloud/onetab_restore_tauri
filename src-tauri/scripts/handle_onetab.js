@@ -1,6 +1,5 @@
 const {promises: {writeFile, mkdir}} = require('fs');
 const {Level} = require('level')
-const MongoClient = require('mongodb').MongoClient
 
 const USER_HOME = (process.env.HOME || process.env.USERPROFILE).replaceAll("\\", "/")
 
@@ -41,6 +40,7 @@ const getItems = async (onetabs) => {
 
 // 异步连接mongo
 const getMongoDB = async () => {
+    const MongoClient = require('mongodb').MongoClient
     const db = await MongoClient.connect(url)
     return await db
 }
@@ -85,13 +85,13 @@ const genExtFiles = async (items, onetabs) => {
 // 主函数
 const main = async () => {
     const json = await getOnetabData()
-    const db = await getMongoDB()
+    // const db = await getMongoDB()
     const items = await getItems(json.tabGroups)
-    await insertItems(db, items)
-    await insertGroups(db, json.tabGroups)
+    // await insertItems(db, items)
+    // await insertGroups(db, json.tabGroups)
     await genExtFiles(items, json)
 
-    await db.close()
+    // await db.close()
     console.log("写入MongoDB完成, 程序执行完毕. ")
 }
 

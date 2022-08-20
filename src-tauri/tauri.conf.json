@@ -65,7 +65,7 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": ["scripts/handle_onetab.js"],
+      "resources": ["scripts/*"],
       "shortDescription": "",
       "targets": "all",
       "windows": {

@@ -17,11 +17,15 @@
 ---
 `Onetab Re` 是一款用于备份并原样展示Onetab数据的应用，基于 [Tauri](https://github.com/tauri-apps/tauri) 跨平台构建，支持 `Windows` `macOS` `Linux`.
 
-## 使用方法
-1. 安装后在软件的Scripts目录下使用node运行唯一的js文件, 备份onetab数据
-2. 将第一步运行完毕得到的一组文件中的`tab_ori.json`复制到软件本体的目录
-3. 运行软件本体, 即可原样查看Onetab数据
-> macOS下请展开`Onetab Re.app`
+## 备份脚本使用方法
+> 请先确认已经正确安装`node.js`
+1. 安装后打开软件的scripts目录, 为其中的`package`文件添加.json文件后缀
+2. 在终端(由于安装在系统目录, 可能需要管理员权限)中打开scripts目录
+3. (可选) 修改js脚本配置, 对应使用版本, 默认为Edge下Edge商店的Onetab
+4. 在终端运行 `npm install` 安装依赖, 然后运行 `npm start`, 获得备份文件
+5. 将上一步运行完毕得到的文件中的`tab_ori.json`复制到软件本体的目录
+6. 运行软件本体, 即可原样查看Onetab数据
+> macOS下请先展开`Onetab Re.app`
 
 ## todo
 - 通过Rust处理备份流程, 避免额外安装nodejs

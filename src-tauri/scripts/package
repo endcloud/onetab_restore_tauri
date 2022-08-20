@@ -1,0 +1,14 @@
+{
+  "name": "onetab_backup",
+  "version": "1.0.0",
+  "main": "handle_onetab.js",
+  "author": "endcloud <endcloud@qq.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "level": "^8.0.0",
+    "mongodb": "^4.9.0"
+  },
+  "scripts": {
+    "start": "node ./handle_onetab.js"
+  }
+}
