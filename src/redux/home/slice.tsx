@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {desktopDir, localDataDir, appDir, homeDir, resourceDir} from "@tauri-apps/api/path"
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+import {homeDir} from "@tauri-apps/api/path"
 import {readTextFile} from "@tauri-apps/api/fs"
 import {fetch} from "@tauri-apps/api/http"
 import {confirm} from "@tauri-apps/api/dialog"
@@ -26,7 +26,7 @@ export interface HomeStateType {
     pagination: {
         count: number,
         page: number,
-        current_page : number,
+        current_page: number,
         per_page: number,
     } | undefined,
     filter: {
@@ -50,12 +50,12 @@ const initialState: HomeStateType = {
 export const readJson = createAsyncThunk(
     "home/read_file",
     async () => {
-        console.log(await desktopDir())
-        console.log(await localDataDir())
-        console.log(await appDir())
-        console.log(await homeDir())
-        console.log(await resourceDir())
-        const str = await readTextFile(`${await resourceDir()}\\tab_ori.json`.replaceAll("\\", "/"))
+        // console.log(await desktopDir())
+        // console.log(await localDataDir())
+        // console.log(await appDir())
+        // console.log(await homeDir())
+        // console.log(await resourceDir())
+        const str = await readTextFile(`${await homeDir()}tab_ori.json`)
         return JSON.parse(str).tabGroups
     }
 )
@@ -86,12 +86,12 @@ export type thunkType = typeof readJson
 const dataVerify = (state: HomeStateType) => {
     if (state.showGroups.length === 0) {
         state.errMessage = "No result found"
-    }else{
+    } else {
         state.errMessage = undefined
     }
 
     state.pagination!.count = state.showGroups.length
-    state.pagination!.page = Math.ceil(state.pagination!.count/state.pagination!.per_page)
+    state.pagination!.page = Math.ceil(state.pagination!.count / state.pagination!.per_page)
     state.pagination!.current_page = 0
 }
 
@@ -107,14 +107,14 @@ export const HomeSlice = createSlice({
             state.loaded = false
         },
         nextPage: (state: HomeStateType, action) => {
-            if((typeof action.payload) === "number") {
+            if ((typeof action.payload) === "number") {
                 state.pagination!.current_page = action.payload
-            }else{
+            } else {
                 state.pagination!.current_page++
             }
         },
         changePerPage: (state: HomeStateType, action) => {
-            state.pagination!.page = Math.ceil(state.pagination!.count/action.payload)
+            state.pagination!.page = Math.ceil(state.pagination!.count / action.payload)
             state.pagination!.current_page = 0
             state.pagination!.per_page = action.payload
         },
@@ -153,7 +153,7 @@ export const HomeSlice = createSlice({
             state.showGroups = action.payload
             state.pagination = {
                 count: state.showGroups.length,
-                page: Math.ceil(state.showGroups.length/10),
+                page: Math.ceil(state.showGroups.length / 10),
                 current_page: 0,
                 per_page: 10,
             }

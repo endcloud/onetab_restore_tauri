@@ -23,9 +23,11 @@
 2. 在终端(由于安装在系统目录, 可能需要管理员权限)中打开scripts目录
 3. (可选) 修改js脚本配置, 对应使用版本, 默认为Edge下Edge商店的Onetab
 4. 在终端运行 `npm install` 安装依赖, 然后运行 `npm start`, 获得备份文件
-5. 将上一步运行完毕得到的文件中的`tab_ori.json`复制到软件本体的目录
-6. 运行软件本体, 即可原样查看Onetab数据
-> macOS下请先展开`Onetab Re.app`
+5. 运行软件本体, 即可原样查看Onetab数据
+
+> macOS下请先展开`Onetab Re.app`, scripts目录在`Onetab Re.app/Contents/Resources/scripts`
+
+> Chrome和Edge版本不同可能导致路径有变化, 请在浏览器地址栏输入`chrome://version`或者`edge://version`查看完整的用户目录位置核对后使用
 
 ## todo
 - 通过Rust处理备份流程, 避免额外安装nodejs

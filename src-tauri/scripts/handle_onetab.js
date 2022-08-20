@@ -15,8 +15,8 @@ const edge = {
 
 const winPath = `${USER_HOME}/AppData/Local/${edge.name}/User Data/Default/Local Extension Settings/${edge.uuid}`
 // 以下两条为 Copilot 智能添加的代码, 请自行核对路径是否正确
-// const macPath = `${USER_HOME}/Library/Application Support/${edge.name}/User Data/Default/Local Extension Settings/${edge.uuid}`
-// const linuxPath = `${USER_HOME}/AppData/Local/${edge.name}/User Data/Default/Local Extension Settings/${edge.uuid}`
+const macPath = `${USER_HOME}/Library/Application Support/${edge.name.replaceAll("/", " ")}/Default/Local Extension Settings/${edge.uuid}`
+const linuxPath = `${USER_HOME}/AppData/Local/${edge.name.replaceAll("/", " ")}/Default/Local Extension Settings/${edge.uuid}`
 
 const ldb = new Level(winPath)
 const url = "mongodb://alpha:123456aB@localhost:27017/?authSource=admin"
@@ -79,6 +79,7 @@ const genExtFiles = async (items, onetabs) => {
 
     // 生成JSON
     await writeFile('./onetab/tab_ori.json', JSON.stringify(onetabs))
+    await writeFile(`${USER_HOME}/tab_ori.json`, JSON.stringify(onetabs))
     console.log('数据文件生成完毕, 请打开当前目录下的onetab文件夹查看.')
 }
 
