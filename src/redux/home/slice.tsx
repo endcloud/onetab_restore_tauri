@@ -134,7 +134,7 @@ export const HomeSlice = createSlice({
 
             state.filter.date = action.payload
 
-            state.showGroups = state.onetabGroups.filter(group => new Date(group.createDate).toLocaleDateString() === action.payload)
+            state.showGroups = action.payload === "" ? state.onetabGroups : state.onetabGroups.filter(group => new Date(group.createDate).toLocaleDateString() === action.payload)
 
             dataVerify(state)
         },

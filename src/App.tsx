@@ -18,7 +18,8 @@ function App() {
     const [dark, setDark] = useState(false)
 
     const setTheme = async() => {
-        const theme = await appWindow.theme()
+        // const theme = await appWindow.theme() // todo-亮色有点问题, 待解决
+        const theme = "dark"
         setDark(theme! === "dark")
     }
     useEffect(() => {

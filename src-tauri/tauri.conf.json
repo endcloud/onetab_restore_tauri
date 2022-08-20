@@ -39,6 +39,15 @@
       },
       "os": {
         "all": true
+      },
+      "shell": {
+        "sidecar": true,
+        "execute": true,
+        "open": "[\\s\\S]*",
+        "scope": [
+          { "name": "node", "args": true,"cmd": "node"},
+          { "name": "npm", "args": true,"cmd": "npm"}
+        ]
       }
     },
     "bundle": {

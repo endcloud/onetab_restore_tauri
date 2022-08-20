@@ -14,7 +14,9 @@ export const DatePicker: React.FC = () => {
     }
     const blur = () => {
         console.log("date_blur")
-        dispatch(HomeSlice.actions.filterDate(startDate.toDate().toLocaleDateString()))
+        const payload = !startDate ? "" : startDate.toDate().toLocaleDateString()
+        console.log(payload)
+        dispatch(HomeSlice.actions.filterDate(payload))
     }
 
     return (
